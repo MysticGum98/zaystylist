@@ -42,7 +42,7 @@ p { margin: 12px 0 0; }
 .bar { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .brand { display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none;
   font: 800 22px Archivo, sans-serif; font-stretch: 70%; color: var(--cream); letter-spacing: .02em; }
-.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.brand img { width: 32px; height: 32px; border-radius: 8px; outline: 1px solid var(--well); }
 .pill { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px;
   background: var(--cream); color: var(--shell); font: 500 17px Inter, sans-serif; text-decoration: none; }
 .pill.small { min-height: 44px; padding: 0 18px; font-size: 14px; }
@@ -90,7 +90,10 @@ footer a { color: var(--body); text-decoration: none; min-height: 44px; display:
    to edge, the display type at its largest, privacy and the footer across the width; the phone layout is untouched */
 @media (min-width: 1024px) {
   .wrap { max-width: 1200px; padding-left: 40px; padding-right: 40px; }
-  .bar { height: 88px; }
+  .bar { height: 96px; }
+  .brand { font-size: 28px; gap: 14px; }
+  .brand img { width: 52px; height: 52px; border-radius: 12px; }
+  .pill.small { min-height: 52px; padding: 0 24px; font-size: 17px; }
   .hero { grid-template-columns: 1.15fr 1fr; gap: 64px; padding-top: 88px; padding-bottom: 40px; }
   .hero .lead { font-size: 22px; max-width: 26ch; }
   .hero .shot { width: 360px; }
@@ -121,7 +124,7 @@ footer a { color: var(--body); text-decoration: none; min-height: 44px; display:
 </head>
 <body>
 <header class="wrap bar">
-  <a class="brand" href="/"><img src="assets/icon-64.png" alt="" width="32" height="32">ZAY</a>
+  <a class="brand" href="/"><img src="assets/icon-128.png" alt="" width="32" height="32">ZAY</a>
   <a class="pill small" href="https://apps.apple.com/app/id6829113783">Get the app</a>
 </header>
 
