@@ -1,0 +1,214 @@
+<!doctype html>
+<!-- zaystylist.com (18 Nov 2026, his "build the website i like it for now"): the landing page, what Zay is and the
+     App Store link. From research/2026-11-18/site/landing-mock.html with his lines. One file, no third parties: the
+     fonts and images are local, no analytics. Night by default, Day when the phone is in light mode. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zay, your stylist</title>
+<meta name="description" content="Zay picks today's outfit from what you already own, checks the weather, and tells you exactly what works. Free on iPhone and Apple Watch.">
+<meta name="apple-itunes-app" content="app-id=6829113783">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4F1EB" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="Zay, your stylist">
+<meta property="og:description" content="You've got the clothes. I've got ideas.">
+<meta property="og:image" content="https://zaystylist.com/assets/og.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: Archivo; src: url(fonts/archivo.woff2) format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: Inter; src: url(fonts/inter.woff2) format('woff2'); font-weight: 100 900; font-display: swap; }
+/* design/tokens.json: Night, then Day */
+:root { --shell: #141210; --card: #201E1B; --well: #2A2724; --cream: #F0EBE2; --body: #C9C2B8; --label: #A8A299; color-scheme: dark; }
+@media (prefers-color-scheme: light) {
+  :root { --shell: #F4F1EB; --card: #E8E3D9; --well: #E0DACF; --cream: #141210; --body: #2A2724; --label: #5E5952; color-scheme: light; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+html, body { margin: 0; background: var(--shell); color: var(--body); font: 400 17px/1.45 Inter, system-ui, sans-serif; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+.cap { font: 800 34px/1.0 Archivo, sans-serif; font-stretch: 70%; text-transform: uppercase; color: var(--cream);
+  letter-spacing: -.005em; word-spacing: .1em; margin: 0; text-wrap: balance; }
+.cap.xl { font-size: 56px; line-height: .96; }
+.label { font: 500 13px Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--label); margin: 0 0 12px; }
+p { margin: 12px 0 0; }
+.lead { max-width: 30ch; }
+
+.bar { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.brand { display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none;
+  font: 800 22px Archivo, sans-serif; font-stretch: 70%; color: var(--cream); letter-spacing: .02em; }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.pill { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px;
+  background: var(--cream); color: var(--shell); font: 500 17px Inter, sans-serif; text-decoration: none; }
+.pill.small { min-height: 44px; padding: 0 18px; font-size: 14px; }
+.pill:focus-visible, .brand:focus-visible, footer a:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+.hero { padding-top: 40px; padding-bottom: 8px; }
+.hero .pill { margin-top: 28px; }
+.shot { border-radius: 36px; outline: 2px solid var(--well); }
+.hero .shot { width: min(78%, 340px); margin: 40px auto 0; }
+section { padding: 72px 0 0; }
+
+.strips { overflow: hidden; margin: 24px -20px 0; }
+.strip { display: flex; gap: 10px; width: max-content; padding: 0 20px; animation: slide 60s linear infinite; }
+.strip.two { margin-top: 10px; animation-duration: 75s; animation-direction: reverse; }
+.strip span { flex: none; padding: 12px 16px; border-radius: 12px; background: var(--card); color: var(--cream); font-size: 14px; white-space: nowrap; }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .strip { animation: none; } }
+
+.feat .cap { font-size: 28px; }
+.feat .shot { width: min(64%, 300px); margin: 28px auto 0; border-radius: 30px; }
+.watch { display: flex; gap: 12px; margin: 28px auto 0; max-width: 420px; }
+.watch img { width: calc(50% - 6px); border-radius: 22px; outline: 2px solid var(--well); }
+
+.last { text-align: center; padding: 96px 0 8px; }
+.last .pill { margin-top: 28px; }
+.last .small-print { font-size: 14px; color: var(--label); }
+
+footer { margin-top: 80px; border-top: 1px solid var(--well); }
+footer .wrap { padding-top: 24px; padding-bottom: calc(40px + env(safe-area-inset-bottom)); font-size: 14px; color: var(--label); }
+footer nav { display: flex; flex-wrap: wrap; gap: 0 22px; margin-bottom: 8px; }
+footer a { color: var(--body); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+
+/* wider screens: text beside the phone */
+@media (min-width: 860px) {
+  .cap.xl { font-size: 72px; }
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 32px; }
+  .hero .shot { margin: 0; justify-self: center; }
+  .feat { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .feat .shot, .feat .watch { margin: 0 auto; }
+  .feat:nth-of-type(odd) > :last-child { order: -1; }
+  .strips { margin: 24px 0 0; border-radius: 12px; }
+}
+</style>
+</head>
+<body>
+<header class="wrap bar">
+  <a class="brand" href="/"><img src="assets/icon-64.png" alt="" width="32" height="32">ZAY</a>
+  <a class="pill small" href="https://apps.apple.com/app/id6829113783">Get the app</a>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <p class="label">Your stylist</p>
+      <h1 class="cap xl">You’ve got<br>the clothes.<br>I’ve got ideas.</h1>
+      <p class="lead">Zay picks today’s outfit from what you already own, checks the weather, and tells you exactly what works.</p>
+      <a class="pill" href="https://apps.apple.com/app/id6829113783">Download on the App Store</a>
+    </div>
+    <img class="shot" src="assets/today.webp" width="860" height="1869" alt="Zay's Today screen: a white oxford shirt, raw indigo denim, white sneakers, an olive overshirt and a brown belt, scored 89, Excellent.">
+  </div>
+
+  <section class="wrap">
+    <p class="label">Meet Zay</p>
+    <h2 class="cap">The friend with taste.</h2>
+    <p>Honest, a little sassy, never wrong about shoes.</p>
+    <div class="strips" aria-label="Things Zay says">
+      <div class="strip">
+        <span>Too light for today. Add a layer, be brave tomorrow.</span>
+        <span>Linen and silk, in this cold? Brave. Wrong, but brave.</span>
+        <span>Leave the jacket open. Buttoning it would be a crime.</span>
+        <span>Too light for today. Add a layer, be brave tomorrow.</span>
+        <span>Linen and silk, in this cold? Brave. Wrong, but brave.</span>
+        <span>Leave the jacket open. Buttoning it would be a crime.</span>
+      </div>
+      <div class="strip two" aria-hidden="true">
+        <span>No print, all texture. Grown-up move.</span>
+        <span>Two colours. Disciplined. I respect it.</span>
+        <span>All eyes on the rust knit polo. Exactly as planned.</span>
+        <span>All flat solids. Clean, but snoozy. Throw in some texture.</span>
+        <span>No print, all texture. Grown-up move.</span>
+        <span>Two colours. Disciplined. I respect it.</span>
+        <span>All eyes on the rust knit polo. Exactly as planned.</span>
+        <span>All flat solids. Clean, but snoozy. Throw in some texture.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap feat">
+    <div>
+      <p class="label">Why it works</p>
+      <h2 class="cap">I don’t just score it.<br>I tell you why.</h2>
+      <p>Ten scores, from colour to proportion, and every line in plain words.</p>
+    </div>
+    <img class="shot" src="assets/why.webp" width="860" height="1869" loading="lazy" alt="Why a look scores what it does: ten bars, from colour harmony to your taste, then Zay's notes.">
+  </section>
+
+  <section class="wrap feat">
+    <div>
+      <p class="label">The dial</p>
+      <h2 class="cap">Work, dinner, a wedding.<br>Relax, I’ve got it.</h2>
+      <p>Turn the dial to the occasion. Six looks, dressed for it.</p>
+    </div>
+    <img class="shot" src="assets/dial.webp" width="860" height="1869" loading="lazy" alt="The occasion dial turned to Work.">
+  </section>
+
+  <section class="wrap feat">
+    <div>
+      <p class="label">Closet</p>
+      <h2 class="cap">Your clothes, cut out.<br>Finally organised.</h2>
+      <p>Snap a piece and Zay cuts it out, so your closet looks like a shop window.</p>
+    </div>
+    <img class="shot" src="assets/closet.webp" width="860" height="1869" loading="lazy" alt="The closet: each piece cut out on its own tile.">
+  </section>
+
+  <section class="wrap feat">
+    <div>
+      <p class="label">Calendar</p>
+      <h2 class="cap">Wore it Tuesday?<br>I noticed. Let’s not.</h2>
+      <p>What you wore, day by day, so the same look doesn’t come round too soon.</p>
+    </div>
+    <img class="shot" src="assets/calendar.webp" width="860" height="1869" loading="lazy" alt="The calendar: four weeks, each logged day showing what was worn.">
+  </section>
+
+  <section class="wrap feat">
+    <div>
+      <p class="label">On your wrist</p>
+      <h2 class="cap">Today’s look, on your Watch.</h2>
+      <p>Wore it? One tap. Convenient, huh?</p>
+    </div>
+    <div class="watch">
+      <img src="assets/watch-today.webp" width="422" height="514" loading="lazy" alt="Zay on Apple Watch: today's look and Wore it.">
+      <img src="assets/watch-faces.webp" width="422" height="514" loading="lazy" alt="Zay's complications on a watch face.">
+    </div>
+  </section>
+
+  <section class="wrap feat">
+    <div>
+      <p class="label">Together</p>
+      <h2 class="cap">Dress you both.<br>Matching tracksuits<br>not included.</h2>
+      <p>Link with your partner and get looks that go together, without matching.</p>
+    </div>
+    <img class="shot" src="assets/together.webp" width="860" height="1869" loading="lazy" alt="Together: pairs of looks for two people, scored together.">
+  </section>
+
+  <section class="wrap">
+    <p class="label">Privacy</p>
+    <h2 class="cap">Your closet stays yours.</h2>
+    <p class="lead">I just have opinions about it. No trackers, no ads, and your photos are never sold.</p>
+  </section>
+
+  <div class="wrap last">
+    <h2 class="cap xl">Your turn.<br>Let me fix<br>you a fit.</h2>
+    <a class="pill" href="https://apps.apple.com/app/id6829113783">Download on the App Store</a>
+    <p class="small-print">Free on iPhone and Apple Watch.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="https://mysticgum98.github.io/Atelier/support.html">Support</a>
+      <a href="https://mysticgum98.github.io/Atelier/privacy.html">Privacy</a>
+      <a href="https://mysticgum98.github.io/Atelier/terms.html">Terms</a>
+    </nav>
+    <a href="mailto:hello@zaystylist.com">hello@zaystylist.com</a>
+  </div>
+</footer>
+</body>
+</html>
