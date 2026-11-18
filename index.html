@@ -85,6 +85,38 @@ footer a { color: var(--body); text-decoration: none; min-height: 44px; display:
   .feat:nth-of-type(odd) > :last-child { order: -1; }
   .strips { margin: 24px 0 0; border-radius: 12px; }
 }
+
+/* a desktop (19 Nov 2026, his "the desktop version isnt optimized"): the features as a grid of three, the strips edge
+   to edge, the display type at its largest, privacy and the footer across the width; the phone layout is untouched */
+@media (min-width: 1024px) {
+  .wrap { max-width: 1200px; padding-left: 40px; padding-right: 40px; }
+  .bar { height: 88px; }
+  .hero { grid-template-columns: 1.15fr 1fr; gap: 64px; padding-top: 88px; padding-bottom: 40px; }
+  .hero .lead { font-size: 22px; max-width: 26ch; }
+  .hero .shot { width: 360px; }
+  section { padding-top: 140px; }
+  .meet { text-align: center; }
+  .meet .cap { font-size: 56px; }
+  .meet > p { font-size: 22px; }
+  .strips { margin: 48px calc(50% - 50vw) 0; border-radius: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .strip span { font-size: 17px; padding: 16px 22px; }
+  .features { max-width: 1200px; margin: 140px auto 0; padding: 0 40px; box-sizing: border-box;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 96px 48px; align-items: start; }
+  .features .feat { padding: 0; margin: 0; max-width: none; display: flex; flex-direction: column; }
+  .features .feat > :last-child { order: -1; }
+  .features .feat .shot { width: 100%; max-width: 320px; margin: 0 0 32px; }
+  .features .watch { width: 100%; max-width: 320px; aspect-ratio: 860 / 1869; align-items: center; margin: 0 0 32px; }
+  .features .feat .cap { font-size: 28px; }
+  .privacy { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; align-items: end; }
+  .privacy .label { grid-column: 1 / -1; }
+  .privacy .cap { font-size: 56px; }
+  .privacy .lead { font-size: 22px; max-width: 32ch; margin: 0; }
+  .last { padding-top: 180px; }
+  .last .pill { margin-top: 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; }
+  footer nav { margin-bottom: 0; }
+}
 </style>
 </head>
 <body>
@@ -104,7 +136,7 @@ footer a { color: var(--body); text-decoration: none; min-height: 44px; display:
     <img class="shot" src="assets/today.webp" width="860" height="1869" alt="Zay's Today screen: a white oxford shirt, raw indigo denim, white sneakers, an olive overshirt and a brown belt, scored 89, Excellent.">
   </div>
 
-  <section class="wrap">
+  <section class="wrap meet">
     <p class="label">Meet Zay</p>
     <h2 class="cap">The friend with taste.</h2>
     <p>Honest, a little sassy, never wrong about shoes.</p>
@@ -130,6 +162,7 @@ footer a { color: var(--body); text-decoration: none; min-height: 44px; display:
     </div>
   </section>
 
+  <div class="features">
   <section class="wrap feat">
     <div>
       <p class="label">Why it works</p>
@@ -186,8 +219,9 @@ footer a { color: var(--body); text-decoration: none; min-height: 44px; display:
     </div>
     <img class="shot" src="assets/together.webp" width="860" height="1869" loading="lazy" alt="Together: pairs of looks for two people, scored together.">
   </section>
+  </div>
 
-  <section class="wrap">
+  <section class="wrap privacy">
     <p class="label">Privacy</p>
     <h2 class="cap">Your closet stays yours.</h2>
     <p class="lead">I just have opinions about it. No trackers, no ads, and your photos are never sold.</p>
